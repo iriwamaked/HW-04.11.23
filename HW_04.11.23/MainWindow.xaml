@@ -1,0 +1,48 @@
+﻿<Window x:Class="HW_04._11._23.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HW_04._11._23"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <TextBlock Padding="10" Margin="10,5,10,5" HorizontalAlignment="Center"> Введіть текст або оберіть файл для зчитування:</TextBlock>
+            <TextBox Height="150" Name="UserText" TextChanged="UserTextChanged"></TextBox>
+            <Button Margin="5" Height="40" Content="Обрати текст з файлу" Click="TextFromFile_Click"></Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+              <GroupBox Padding="10" Header="Оберіть тип інформації, яку необхідно проаналізувати:">
+                <StackPanel>
+                     <CheckBox Name="Sentences" Checked="CheckBoxChecked">Кількість речень</CheckBox>
+                    <CheckBox Name="Characters" Checked="CheckBoxChecked">Кількість символів</CheckBox>
+                    <CheckBox Name="Words" Checked="CheckBoxChecked">Кількість слів</CheckBox>
+                    <CheckBox Name="Questions" Checked="CheckBoxChecked">Кількість питальних речень</CheckBox>
+                    <CheckBox Name="Exclamations" Checked="CheckBoxChecked">Кількість окличних речень</CheckBox>
+                    <CheckBox Name="AllTypes" Checked="CheckBoxChecked">Обрати все</CheckBox>
+                </StackPanel>
+            </GroupBox>
+            <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                <Button Click="ShowRecord_Click">Звіт на екран</Button>
+                <Button Grid.Column="1" Click="SaveRecordToFile">Зберігти звіт у файл</Button>
+            </Grid>
+         </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1" Grid.RowSpan="2">
+            <TextBlock Padding="10" Margin="10,5,10,5" HorizontalAlignment="Center">Звіт за результатами аналізу тексту:</TextBlock>
+            <TextBlock Name="ResultTextBlock" Height="200" TextWrapping="Wrap"></TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>
